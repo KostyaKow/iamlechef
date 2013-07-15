@@ -1,0 +1,21 @@
+----------------------------------
+General info:
+
+To run Le Chef on your computer, execute update.sh. It configures the server, and then runs nginx and node.js.
+
+You need to execute it every time you modified any of the source files.
+
+Currently, it does not install/configure the server and database itself, but I am planning on adding this feature sometime in the future if we do not switch to Vagrant.
+
+All the source code is located in app/src.
+
+Html files are located in src/html, client-side javascript in src/userjs, and node.js code is in src/serverjs.
+
+Misc folder contains nginx.conf file which configures nginx to forward all 404's (non-found files) to node server.
+
+----------------------------------
+node code info:
+
+When nginx gets a request for a file it cannot find, it passes control to node, which is running on port 8888.
+
+Main node file is index.js, so it receives control when node is called. It manages all the other files.
